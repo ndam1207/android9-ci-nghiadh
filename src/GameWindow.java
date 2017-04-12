@@ -44,6 +44,6 @@ public class GameWindow extends Frame{
 
             }
         });
-        
+
     }
 }

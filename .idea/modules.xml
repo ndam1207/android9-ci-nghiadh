@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://D://android9-ci-nghiadh/android9-ci-nghiadh.iml" filepath="D://android9-ci-nghiadh/android9-ci-nghiadh.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android9-nghiadh-git.iml" filepath="$PROJECT_DIR$/android9-nghiadh-git.iml" />
     </modules>
   </component>
 </project>
