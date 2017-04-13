@@ -1,4 +1,7 @@
+import com.sun.corba.se.impl.orbutil.graph.Graph;
+
 import java.awt.*;
+import java.util.ArrayList;
 
 public class PlayerPlane {
     public static final int SPEED = 10;
@@ -7,12 +10,25 @@ public class PlayerPlane {
     private int y;
     private int width;
     private int height;
+    PlaneBullet planeBullet;
+    ArrayList<PlaneBullet> planeBullets = new ArrayList<>();
+    boolean shootEnabled;
+
     public PlayerPlane(Image image, int x, int y, int width, int height) {
         this.x = x;
         this.y = y;
         this.image = image;
         this.width = width;
         this.height = height;
+        shootEnabled = true;
+    }
+
+    public ArrayList<PlaneBullet> getPlaneBullets() {
+        return planeBullets;
+    }
+
+    public void setPlaneBullets(ArrayList<PlaneBullet> planeBullets) {
+        this.planeBullets = planeBullets;
     }
 
     public int getX() {
@@ -69,10 +85,29 @@ public class PlayerPlane {
     public void moveRight(){
         x += SPEED;
     }
-    public void coolDown(){
-        int count = 0;
-        while(count!=10){
-            count++;
+
+    public void createBullets(Image image){
+        PlaneBullet planeBullet = new PlaneBullet(image,x+35,y-10,13,33);
+        planeBullets.add(planeBullet);
+    }
+
+    public void shoot(){
+        for (PlaneBullet planeBullet : planeBullets){
+            planeBullet.fly();
+        }
+    }
+
+    public void drawBullets(Graphics graphics){
+        for(PlaneBullet planeBullet : planeBullets){
+            planeBullet.draw(graphics);
+        }
+    }
+
+
+    public void coolDown(int coolDownTime){
+        if(!shootEnabled){
+            coolDownTime--;
+            if(coolDownTime <= 0) shootEnabled = true;
         }
     }
 

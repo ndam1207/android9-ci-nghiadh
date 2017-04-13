@@ -24,8 +24,7 @@ public class GameWindow extends Frame{
     boolean isSpacePressed;
     PlayerPlane playerPlane;
 
-    ArrayList<PlaneBullet> planeBullets = new ArrayList<>();
-
+    private int coolDownTime;
     public GameWindow(){
         setVisible(true);
         setSize(600,800);
@@ -165,15 +164,14 @@ public class GameWindow extends Frame{
                     }
 
                     if(isSpacePressed){
-                        PlaneBullet planeBullet = new PlaneBullet(loadImage("bullet.png"),playerPlane.getX()+35,playerPlane.getY()-10,13,33);
-                        playerPlane.coolDown();
-                        planeBullets.add(planeBullet);
-
+                        if(playerPlane.shootEnabled) {
+                            playerPlane.createBullets(loadImage("bullet.png"));
+                            playerPlane.shootEnabled = false;
+                            coolDownTime = 20;
+                        }
+                        playerPlane.coolDown(coolDownTime);
                     }
-
-                    for (PlaneBullet planeBullet : planeBullets){
-                        planeBullet.fly();
-                    }
+                    playerPlane.shoot();
 
                     //Draw
                     repaint();
@@ -196,9 +194,7 @@ public class GameWindow extends Frame{
     public void update(Graphics g) {
         backbufferGraphics.drawImage(backgroundImage,0,0,600,800,null);
         playerPlane.draw(backbufferGraphics);
-        for(PlaneBullet planeBullet : planeBullets){
-            planeBullet.draw(backbufferGraphics);
-        }
+        playerPlane.drawBullets(backbufferGraphics);
         g.drawImage(backBufferImage,0,0,null);
     }
 }
