@@ -103,11 +103,13 @@ public class PlayerPlane {
         }
     }
 
-
     public void coolDown(int coolDownTime){
         if(!shootEnabled){
-            coolDownTime--;
-            if(coolDownTime <= 0) shootEnabled = true;
+            while(coolDownTime>0) {
+                coolDownTime--;
+               // System.out.println(coolDownTime);
+                if (coolDownTime <= 0) shootEnabled = true;
+            }
         }
     }
 

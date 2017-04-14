@@ -13,6 +13,8 @@ import java.util.ArrayList;
 
 public class GameWindow extends Frame{
     Image backgroundImage;
+    public static final int SCREEN_WIDTH = 600;
+    public static final int SCREEN_HEIGHT = 800;
 
     private BufferedImage backBufferImage;
     private Graphics backbufferGraphics;
@@ -22,15 +24,24 @@ public class GameWindow extends Frame{
     boolean isLeftPressed;
     boolean isRightPressed;
     boolean isSpacePressed;
+
     PlayerPlane playerPlane;
+    EnemyPlane enemyPlane;
 
     private int coolDownTime;
+
+    ArrayList<EnemyPlane> enemyPlanes = new ArrayList<>();
+
     public GameWindow(){
         setVisible(true);
         setSize(600,800);
-        backBufferImage = new BufferedImage(600,800, BufferedImage.TYPE_INT_ARGB);
+
+        backBufferImage = new BufferedImage(SCREEN_WIDTH,SCREEN_HEIGHT, BufferedImage.TYPE_INT_ARGB);
         backbufferGraphics = backBufferImage.getGraphics();
         playerPlane = new PlayerPlane(loadImage("plane3.png"),200,700,70,51);
+        enemyPlane = new EnemyPlane(loadImage("enemy_plane_white_1.png"),50,100,60,60,5);
+        enemyPlanes.add(enemyPlane);
+
         //add Listener
         addWindowListener(new WindowListener() {
             @Override
@@ -129,7 +140,6 @@ public class GameWindow extends Frame{
             }
         });
 
-
         //Load Images Here
         try {
             backgroundImage = ImageIO.read(new File("resources/background.png"));
@@ -171,7 +181,15 @@ public class GameWindow extends Frame{
                         }
                         playerPlane.coolDown(coolDownTime);
                     }
+                    if(enemyPlane.isCrossBordered()){
+                        createEnemyPlane();
+                        enemyPlane.setCrossBordered(false); 
+
+                    }
                     playerPlane.shoot();
+                    for (EnemyPlane enemyPlane : enemyPlanes){
+                        enemyPlane.fly();
+                    }
 
                     //Draw
                     repaint();
@@ -190,11 +208,19 @@ public class GameWindow extends Frame{
         return null;
     }
 
+    public void createEnemyPlane(){
+            EnemyPlane enemyPlane = new EnemyPlane(loadImage("enemy_plane_white_1.png"), 50, 100, 60, 60, 5);
+            enemyPlanes.add(enemyPlane);
+    }
+
     @Override
     public void update(Graphics g) {
         backbufferGraphics.drawImage(backgroundImage,0,0,600,800,null);
         playerPlane.draw(backbufferGraphics);
         playerPlane.drawBullets(backbufferGraphics);
+        for(EnemyPlane enemyPlane: enemyPlanes){
+            enemyPlane.draw(backbufferGraphics);
+        }
         g.drawImage(backBufferImage,0,0,null);
     }
 }
