@@ -38,8 +38,8 @@ public class GameWindow extends Frame{
 
         backBufferImage = new BufferedImage(SCREEN_WIDTH,SCREEN_HEIGHT, BufferedImage.TYPE_INT_ARGB);
         backbufferGraphics = backBufferImage.getGraphics();
-        playerPlane = new PlayerPlane(loadImage("plane3.png"),200,700,70,51);
-        enemyPlane = new EnemyPlane(loadImage("enemy_plane_white_1.png"),50,100,60,60,5);
+        playerPlane = new PlayerPlane(Utils.loadImage("plane3.png"),200,700,70,51);
+        enemyPlane = new EnemyPlane(Utils.loadImage("enemy_plane_white_1.png"),50,100,60,60,5);
         enemyPlanes.add(enemyPlane);
 
         //add Listener
@@ -175,18 +175,20 @@ public class GameWindow extends Frame{
 
                     if(isSpacePressed){
                         if(playerPlane.shootEnabled) {
-                            playerPlane.createBullets(loadImage("bullet.png"));
                             playerPlane.shootEnabled = false;
-                            coolDownTime = 20;
+                            playerPlane.createBullets(Utils.loadImage("bullet.png"));
                         }
-                        playerPlane.coolDown(coolDownTime);
                     }
+
+                    playerPlane.shoot();
+                    playerPlane.coolDown();
+
                     if(enemyPlane.isCrossBordered()){
                         createEnemyPlane();
                         enemyPlane.setCrossBordered(false); 
 
                     }
-                    playerPlane.shoot();
+
                     for (EnemyPlane enemyPlane : enemyPlanes){
                         enemyPlane.fly();
                     }
@@ -199,23 +201,14 @@ public class GameWindow extends Frame{
         thread.start();
     }
 
-    public Image loadImage(String pathName){
-        try {
-            return ImageIO.read(new File("resources/"+pathName));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
     public void createEnemyPlane(){
-            EnemyPlane enemyPlane = new EnemyPlane(loadImage("enemy_plane_white_1.png"), 50, 100, 60, 60, 5);
+            EnemyPlane enemyPlane = new EnemyPlane(Utils.loadImage("enemy_plane_white_1.png"), 50, 100, 60, 60, 5);
             enemyPlanes.add(enemyPlane);
     }
 
     @Override
     public void update(Graphics g) {
-        backbufferGraphics.drawImage(backgroundImage,0,0,600,800,null);
+        backbufferGraphics.drawImage(backgroundImage,0,0,SCREEN_WIDTH,SCREEN_HEIGHT,null);
         playerPlane.draw(backbufferGraphics);
         playerPlane.drawBullets(backbufferGraphics);
         for(EnemyPlane enemyPlane: enemyPlanes){

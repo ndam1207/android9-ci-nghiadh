@@ -12,7 +12,7 @@ public class PlayerPlane {
     private int height;
     PlaneBullet planeBullet;
     ArrayList<PlaneBullet> planeBullets = new ArrayList<>();
-    boolean shootEnabled;
+    boolean shootEnabled = true;
 
     public PlayerPlane(Image image, int x, int y, int width, int height) {
         this.x = x;
@@ -87,7 +87,7 @@ public class PlayerPlane {
     }
 
     public void createBullets(Image image){
-        PlaneBullet planeBullet = new PlaneBullet(image,x+35,y-10,13,33);
+        PlaneBullet planeBullet = new PlaneBullet(image,x+35,y-10,20,40);
         planeBullets.add(planeBullet);
     }
 
@@ -103,14 +103,16 @@ public class PlayerPlane {
         }
     }
 
-    public void coolDown(int coolDownTime){
+    int coolDownTime = 10;
+
+    public void coolDown(){
         if(!shootEnabled){
-            while(coolDownTime>0) {
                 coolDownTime--;
-               // System.out.println(coolDownTime);
-                if (coolDownTime <= 0) shootEnabled = true;
+                if (coolDownTime <= 0) {
+                    coolDownTime = 10;
+                    shootEnabled = true;
+                }
             }
-        }
     }
 
 }
