@@ -1,4 +1,5 @@
-import sun.awt.image.PixelConverter;
+import enemies.EnemyController;
+import utils.Utils;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -11,13 +12,12 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class GameWindow extends Frame{
-    Image backgroundImage;
-    public static final int SCREEN_WIDTH = 600;
-    public static final int SCREEN_HEIGHT = 800;
+public class GameWindow extends Frame {
 
-    private BufferedImage backBufferImage;
-    private Graphics backbufferGraphics;
+    Image backgroundImage;
+
+    BufferedImage backBufferImage;
+    Graphics backbufferGraphics;
 
     boolean isUpPressed;
     boolean isDownPressed;
@@ -25,24 +25,37 @@ public class GameWindow extends Frame{
     boolean isRightPressed;
     boolean isSpacePressed;
 
-    PlayerPlane playerPlane;
-    EnemyPlane enemyPlane;
+    public static final int SCREEN_WIDTH = 600;
+    public static final int SCREEN_HEIGHT = 800;
 
-    private int coolDownTime;
+    ArrayList<PlayerBullet> playerPlayerBullets;
+    PlayerController playerController;
+    ArrayList<EnemyController> enemyControllers;
 
-    ArrayList<EnemyPlane> enemyPlanes = new ArrayList<>();
-
-    public GameWindow(){
+    //2 Draw
+    public GameWindow() {
         setVisible(true);
-        setSize(600,800);
 
-        backBufferImage = new BufferedImage(SCREEN_WIDTH,SCREEN_HEIGHT, BufferedImage.TYPE_INT_ARGB);
+        playerPlayerBullets = new ArrayList<>();
+
+        playerController = new PlayerController(200 - 17, 500 - 25, Utils.loadImage("res/plane3.png"));
+
+        playerController.setPlayerPlayerBullets(playerPlayerBullets);
+
+        enemyControllers = new ArrayList<>();
+
+        for(int i=0; i<=SCREEN_HEIGHT; i+=100) {
+            EnemyController enemyController = new EnemyController(300, 0, Utils.loadImage("res/enemy-green-3.png"));
+            enemyControllers.add(enemyController);
+        }
+
+        setTitle("1945");
+
+        setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
+
+        backBufferImage = new BufferedImage(SCREEN_WIDTH, SCREEN_HEIGHT, BufferedImage.TYPE_INT_ARGB);
         backbufferGraphics = backBufferImage.getGraphics();
-        playerPlane = new PlayerPlane(Utils.loadImage("plane3.png"),200,700,70,51);
-        enemyPlane = new EnemyPlane(Utils.loadImage("enemy_plane_white_1.png"),50,100,60,60,5);
-        enemyPlanes.add(enemyPlane);
 
-        //add Listener
         addWindowListener(new WindowListener() {
             @Override
             public void windowOpened(WindowEvent e) {
@@ -80,7 +93,6 @@ public class GameWindow extends Frame{
             }
         });
 
-        //add KeyListener
         addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -89,24 +101,19 @@ public class GameWindow extends Frame{
 
             @Override
             public void keyPressed(KeyEvent e) {
-                int keyCode = e.getKeyCode();
-                switch(keyCode){
+                switch (e.getKeyCode()) {
                     case KeyEvent.VK_RIGHT:
                         isRightPressed = true;
                         break;
-
                     case KeyEvent.VK_LEFT:
                         isLeftPressed = true;
                         break;
-
                     case KeyEvent.VK_UP:
                         isUpPressed = true;
                         break;
-
                     case KeyEvent.VK_DOWN:
                         isDownPressed = true;
                         break;
-
                     case KeyEvent.VK_SPACE:
                         isSpacePressed = true;
                         break;
@@ -115,24 +122,20 @@ public class GameWindow extends Frame{
 
             @Override
             public void keyReleased(KeyEvent e) {
-                int keyCode = e.getKeyCode();
-                switch(keyCode){
+
+                switch (e.getKeyCode()) {
                     case KeyEvent.VK_RIGHT:
                         isRightPressed = false;
                         break;
-
                     case KeyEvent.VK_LEFT:
                         isLeftPressed = false;
                         break;
-
                     case KeyEvent.VK_UP:
                         isUpPressed = false;
                         break;
-
                     case KeyEvent.VK_DOWN:
                         isDownPressed = false;
                         break;
-
                     case KeyEvent.VK_SPACE:
                         isSpacePressed = false;
                         break;
@@ -140,80 +143,59 @@ public class GameWindow extends Frame{
             }
         });
 
-        //Load Images Here
+        //1 Load image
         try {
-            backgroundImage = ImageIO.read(new File("resources/background.png"));
-
+            backgroundImage = ImageIO.read(new File("res/background.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        //Thread
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                while(true){
+                while (true) {
                     try {
                         Thread.sleep(17);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
 
-                    //Xu ly Logic
-                    if(isUpPressed){
-                        playerPlane.moveUp();
-                    }
-                    if(isDownPressed){
-                        playerPlane.moveDown();
-                    }
-                    if(isLeftPressed){
-                        playerPlane.moveLeft();
-                    }
-                    if(isRightPressed){
-                        playerPlane.moveRight();
+                    playerController.processInput(isUpPressed, isDownPressed, isLeftPressed, isRightPressed, isSpacePressed);
+
+                    for (PlayerBullet bullet : playerPlayerBullets) {
+                        bullet.update();
                     }
 
-                    if(isSpacePressed){
-                        if(playerPlane.shootEnabled) {
-                            playerPlane.shootEnabled = false;
-                            playerPlane.createBullets(Utils.loadImage("bullet.png"));
-                        }
+                    playerController.update();
+                    for(EnemyController enemyController : enemyControllers) {
+                        enemyController.update();
                     }
 
-                    playerPlane.shoot();
-                    playerPlane.coolDown();
-
-                    if(enemyPlane.isCrossBordered()){
-                        createEnemyPlane();
-                        enemyPlane.setCrossBordered(false); 
-
-                    }
-
-                    for (EnemyPlane enemyPlane : enemyPlanes){
-                        enemyPlane.fly();
-                    }
-
-                    //Draw
+                    // Draw
                     repaint();
                 }
             }
         });
+
         thread.start();
     }
 
-    public void createEnemyPlane(){
-            EnemyPlane enemyPlane = new EnemyPlane(Utils.loadImage("enemy_plane_white_1.png"), 50, 100, 60, 60, 5);
-            enemyPlanes.add(enemyPlane);
-    }
+
 
     @Override
     public void update(Graphics g) {
-        backbufferGraphics.drawImage(backgroundImage,0,0,SCREEN_WIDTH,SCREEN_HEIGHT,null);
-        playerPlane.draw(backbufferGraphics);
-        playerPlane.drawBullets(backbufferGraphics);
-        for(EnemyPlane enemyPlane: enemyPlanes){
-            enemyPlane.draw(backbufferGraphics);
+        backbufferGraphics.drawImage(backgroundImage, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, null);
+
+        playerController.draw(backbufferGraphics);
+
+        for (PlayerBullet playerBullet : playerPlayerBullets) {
+            playerBullet.draw(backbufferGraphics);
         }
-        g.drawImage(backBufferImage,0,0,null);
+
+        for (EnemyController enemyController : enemyControllers) {
+            enemyController.draw(backbufferGraphics);
+        }
+        g.drawImage(backBufferImage, 0, 0, null);
+
     }
 }
