@@ -1,4 +1,7 @@
+import enemies.DiagonalMoveBehavior;
 import enemies.EnemyController;
+import enemies.HorizontalMoveBehavior;
+import enemies.MoveBehavior;
 import utils.Utils;
 
 import javax.imageio.ImageIO;
@@ -24,9 +27,12 @@ public class GameWindow extends Frame {
     boolean isLeftPressed;
     boolean isRightPressed;
     boolean isSpacePressed;
+    boolean isEnemyAllowed;
 
     public static final int SCREEN_WIDTH = 600;
     public static final int SCREEN_HEIGHT = 800;
+
+    private int count = 0;
 
     ArrayList<PlayerBullet> playerPlayerBullets;
     PlayerController playerController;
@@ -43,13 +49,6 @@ public class GameWindow extends Frame {
         playerController.setPlayerPlayerBullets(playerPlayerBullets);
 
         enemyControllers = new ArrayList<>();
-
-        for(int i=0; i<=SCREEN_HEIGHT; i+=100) {
-            EnemyController enemyController = new EnemyController(300, 0, Utils.loadImage("res/enemy-green-3.png"));
-            enemyControllers.add(enemyController);
-        }
-
-        setTitle("1945");
 
         setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 
@@ -159,7 +158,30 @@ public class GameWindow extends Frame {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
+                    count++;
+                    if(count>=200){
+                        isEnemyAllowed = true;
+                        count=0;
+                    }
 
+                    if(isEnemyAllowed){
+                        for(int i=0; i<=SCREEN_HEIGHT; i+=100) {
+                            EnemyController enemyController = new EnemyController(300, 10, Utils.loadImage("res/enemy_plane_white_1.png"));
+                            enemyController.setMoveBehavior(new MoveBehavior());
+                            if(i%200==0){
+                                enemyController.setMoveBehavior(new HorizontalMoveBehavior(1,0));
+//                    if(enemyController.getGameRect().getX() >= SCREEN_WIDTH)
+//                        enemyController.setMoveBehavior(new HorizontalMoveBehavior(-1,0));
+                            }
+
+                            if(i%300==0){
+                                enemyController.setMoveBehavior(new DiagonalMoveBehavior(1,2,-2,-1));
+                            }
+
+                            enemyControllers.add(enemyController);
+                        }
+                        isEnemyAllowed=false;
+                    }
                     playerController.processInput(isUpPressed, isDownPressed, isLeftPressed, isRightPressed, isSpacePressed);
 
                     for (PlayerBullet bullet : playerPlayerBullets) {
@@ -167,6 +189,7 @@ public class GameWindow extends Frame {
                     }
 
                     playerController.update();
+
                     for(EnemyController enemyController : enemyControllers) {
                         enemyController.update();
                     }

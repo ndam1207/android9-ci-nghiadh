@@ -2,58 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d368f20a-7d1f-43a7-a2b7-70ed593e053d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/PlayerBullet.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/enemies/EnemyController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/models/GameRect.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/ImageRenderer.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/android9-nghiadh-git/EnemyPlane.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/android9-nghiadh-git/PlaneBullet.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/android9-nghiadh-git/PlayerPlane.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/android9-nghiadh-git/Utils.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/EnemyPlane.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/PlaneBullet.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/enemies/DiagonalMoveBehavior.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/enemies/EnemyBullet.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/enemies/HorizontalMoveBehavior.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/enemies/MoveBehavior.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/android9-nghiadh-git/GameWindow$1.class" afterPath="$PROJECT_DIR$/out/production/android9-nghiadh-git/GameWindow$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/android9-nghiadh-git/GameWindow$2.class" afterPath="$PROJECT_DIR$/out/production/android9-nghiadh-git/GameWindow$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/android9-nghiadh-git/GameWindow$3.class" afterPath="$PROJECT_DIR$/out/production/android9-nghiadh-git/GameWindow$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/android9-nghiadh-git/GameWindow.class" afterPath="$PROJECT_DIR$/out/production/android9-nghiadh-git/GameWindow.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/android9-nghiadh-git/InputManager.class" afterPath="$PROJECT_DIR$/out/production/android9-nghiadh-git/InputManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/android9-nghiadh-git/enemies/EnemyController.class" afterPath="$PROJECT_DIR$/out/production/android9-nghiadh-git/enemies/EnemyController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameWindow.java" afterPath="$PROJECT_DIR$/src/GameWindow.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/InputManager.java" afterPath="$PROJECT_DIR$/src/InputManager.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/1945-logo.png" afterPath="$PROJECT_DIR$/res/1945-logo.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/1945_sprites.bmp" afterPath="$PROJECT_DIR$/res/1945_sprites.bmp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/background.png" afterPath="$PROJECT_DIR$/res/background.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/bomb.png" afterPath="$PROJECT_DIR$/res/bomb.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/bullet-double.png" afterPath="$PROJECT_DIR$/res/bullet-double.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/bullet-left.png" afterPath="$PROJECT_DIR$/res/bullet-left.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/bullet-right.png" afterPath="$PROJECT_DIR$/res/bullet-right.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/bullet-round.png" afterPath="$PROJECT_DIR$/res/bullet-round.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/bullet-single.png" afterPath="$PROJECT_DIR$/res/bullet-single.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/bullet.png" afterPath="$PROJECT_DIR$/res/bullet.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/enemy-green-1.png" afterPath="$PROJECT_DIR$/res/enemy-green-1.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/enemy-green-2.png" afterPath="$PROJECT_DIR$/res/enemy-green-2.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/enemy-green-3.png" afterPath="$PROJECT_DIR$/res/enemy-green-3.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/enemy_bullet.png" afterPath="$PROJECT_DIR$/res/enemy_bullet.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/enemy_plane_white_1.png" afterPath="$PROJECT_DIR$/res/enemy_plane_white_1.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/enemy_plane_white_2.png" afterPath="$PROJECT_DIR$/res/enemy_plane_white_2.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/enemy_plane_white_3.png" afterPath="$PROJECT_DIR$/res/enemy_plane_white_3.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/enemy_plane_yellow.png" afterPath="$PROJECT_DIR$/res/enemy_plane_yellow.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/enemy_plane_yellow_1.png" afterPath="$PROJECT_DIR$/res/enemy_plane_yellow_1.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/enemy_plane_yellow_2.png" afterPath="$PROJECT_DIR$/res/enemy_plane_yellow_2.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/enemy_plane_yellow_3.png" afterPath="$PROJECT_DIR$/res/enemy_plane_yellow_3.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/explosion.png" afterPath="$PROJECT_DIR$/res/explosion.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/island-2.png" afterPath="$PROJECT_DIR$/res/island-2.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/island.png" afterPath="$PROJECT_DIR$/res/island.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/mine.png" afterPath="$PROJECT_DIR$/res/mine.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/plane1.png" afterPath="$PROJECT_DIR$/res/plane1.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/plane2.png" afterPath="$PROJECT_DIR$/res/plane2.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/plane3.png" afterPath="$PROJECT_DIR$/res/plane3.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/plane4.png" afterPath="$PROJECT_DIR$/res/plane4.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/power-up.png" afterPath="$PROJECT_DIR$/res/power-up.png" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/PlayerPlane.java" afterPath="$PROJECT_DIR$/src/PlayerController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Utils.java" afterPath="$PROJECT_DIR$/src/utils/Utils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/enemies/EnemyController.java" afterPath="$PROJECT_DIR$/src/enemies/EnemyController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -72,12 +32,44 @@
       <file leaf-file-name="GameWindow.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GameWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="775">
-              <caret line="186" column="0" lean-forward="false" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
+            <state relative-caret-position="21">
+              <caret line="176" column="38" lean-forward="false" selection-start-line="176" selection-start-column="38" selection-end-line="176" selection-end-column="38" />
               <folding>
-                <element signature="class#1702:2421" expanded="false" />
-                <element signature="method#windowOpened#0;class#1702:2421" expanded="false" />
+                <element signature="class#1608:2327" expanded="false" />
+                <element signature="method#windowOpened#0;class#1608:2327" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EnemyController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/enemies/EnemyController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="882">
+              <caret line="54" column="27" lean-forward="true" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PlayerController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/PlayerController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="124">
+              <caret line="63" column="19" lean-forward="true" selection-start-line="63" selection-start-column="19" selection-end-line="63" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EnemyBullet.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/enemies/EnemyBullet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="12" column="27" lean-forward="true" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -85,18 +77,8 @@
       <file leaf-file-name="PlayerBullet.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PlayerBullet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="546">
-              <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Utils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/utils/Utils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="15" column="32" lean-forward="true" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+            <state relative-caret-position="504">
+              <caret line="35" column="5" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="35" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -133,10 +115,14 @@
         <option value="$PROJECT_DIR$/src/PlayerController.java" />
         <option value="$PROJECT_DIR$/src/controllers/EnemyPlane.java" />
         <option value="$PROJECT_DIR$/src/enemies/EnemyPlane.java" />
-        <option value="$PROJECT_DIR$/src/enemies/EnemyController.java" />
         <option value="$PROJECT_DIR$/src/views/ImageRenderer.java" />
         <option value="$PROJECT_DIR$/src/models/GameRect.java" />
         <option value="$PROJECT_DIR$/src/utils/Utils.java" />
+        <option value="$PROJECT_DIR$/src/enemies/MoveBehavior.java" />
+        <option value="$PROJECT_DIR$/src/enemies/DiagonalMoveBehavior.java" />
+        <option value="$PROJECT_DIR$/src/enemies/HorizontalMoveBehavior.java" />
+        <option value="$PROJECT_DIR$/src/enemies/EnemyBullet.java" />
+        <option value="$PROJECT_DIR$/src/enemies/EnemyController.java" />
         <option value="$PROJECT_DIR$/src/GameWindow.java" />
       </list>
     </option>
@@ -253,9 +239,9 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -708,15 +694,17 @@
       <workItem from="1492093539064" duration="4297000" />
       <workItem from="1492176320771" duration="6727000" />
       <workItem from="1492237529941" duration="6984000" />
-      <workItem from="1492438835986" duration="1622000" />
+      <workItem from="1492438835986" duration="3599000" />
+      <workItem from="1492505982305" duration="3993000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34133000" />
+    <option name="totallyTimeSpent" value="40103000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -733,7 +721,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1359375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1359375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -771,8 +759,60 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="class#1702:2421" expanded="false" />
-            <element signature="method#windowOpened#0;class#1702:2421" expanded="false" />
+            <element signature="class#1608:2327" expanded="false" />
+            <element signature="method#windowOpened#0;class#1608:2327" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/enemies/EnemyController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="19" column="44" lean-forward="false" selection-start-line="19" selection-start-column="44" selection-end-line="19" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/enemy_plane_white_1.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/ImageRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlayerBullet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="15" column="32" lean-forward="true" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="class#1608:2327" expanded="false" />
+            <element signature="method#windowOpened#0;class#1608:2327" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -801,29 +841,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/enemies/EnemyPlane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1071">
-          <caret line="76" column="32" lean-forward="false" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlaneBullet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/enemies/EnemyPlane.java" />
+    <entry file="file://$PROJECT_DIR$/src/PlaneBullet.java" />
     <entry file="file://$PROJECT_DIR$/src/GameWindow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="class#1702:2421" expanded="false" />
-            <element signature="method#windowOpened#0;class#1702:2421" expanded="false" />
+            <element signature="class#1608:2327" expanded="false" />
+            <element signature="method#windowOpened#0;class#1608:2327" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -836,29 +862,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/enemies/EnemyPlane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="76" column="33" lean-forward="true" selection-start-line="76" selection-start-column="33" selection-end-line="76" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlaneBullet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="814">
-          <caret line="58" column="36" lean-forward="false" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/enemies/EnemyPlane.java" />
+    <entry file="file://$PROJECT_DIR$/src/PlaneBullet.java" />
     <entry file="file://$PROJECT_DIR$/src/GameWindow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="class#1702:2421" expanded="false" />
-            <element signature="method#windowOpened#0;class#1702:2421" expanded="false" />
+            <element signature="class#1608:2327" expanded="false" />
+            <element signature="method#windowOpened#0;class#1608:2327" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -871,21 +883,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlaneBullet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="814">
-          <caret line="58" column="36" lean-forward="false" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlaneBullet.java" />
     <entry file="file://$PROJECT_DIR$/src/GameWindow.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="class#1702:2421" expanded="false" />
-            <element signature="method#windowOpened#0;class#1702:2421" expanded="false" />
+            <element signature="class#1608:2327" expanded="false" />
+            <element signature="method#windowOpened#0;class#1608:2327" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -898,14 +903,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlaneBullet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="814">
-          <caret line="58" column="36" lean-forward="false" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlaneBullet.java" />
     <entry file="file://$PROJECT_DIR$/src/Program.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
@@ -919,8 +917,8 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="class#1702:2421" expanded="false" />
-            <element signature="method#windowOpened#0;class#1702:2421" expanded="false" />
+            <element signature="class#1608:2327" expanded="false" />
+            <element signature="method#windowOpened#0;class#1608:2327" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -975,11 +973,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/enemy_plane_white_1.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Views/views.java" />
     <entry file="file://$PROJECT_DIR$/src/InputManager.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -989,22 +982,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlaneBullet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="6" column="17" lean-forward="true" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlayerBullet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="546">
-          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlaneBullet.java" />
     <entry file="file://$PROJECT_DIR$/src/Program.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1013,69 +991,109 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/PlayerController.java">
+    <entry file="file://$PROJECT_DIR$/src/enemies/EnemyPlane.java" />
+    <entry file="file://$PROJECT_DIR$/src/utils/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="805">
-          <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/enemies/EnemyPlane.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="798">
-          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+        <state relative-caret-position="252">
+          <caret line="15" column="32" lean-forward="false" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/ImageRenderer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        <state relative-caret-position="231">
+          <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#249#250#0" expanded="true" />
-            <element signature="e#292#293#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/enemies/EnemyController.java">
+    <entry file="file://$PROJECT_DIR$/res/enemy_plane_white_1.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/enemies/DiagonalMoveBehavior.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="399">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/enemies/MoveBehavior.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="9" column="27" lean-forward="true" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#949#950#0" expanded="true" />
-            <element signature="e#983#984#0" expanded="true" />
+            <element signature="e#152#153#0" expanded="true" />
+            <element signature="e#186#187#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/enemies/HorizontalMoveBehavior.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="17" column="24" lean-forward="false" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+          <folding>
+            <element signature="e#341#342#0" expanded="true" />
+            <element signature="e#377#378#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/GameRect.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="651">
-          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+        <state relative-caret-position="105">
+          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/Utils.java">
+    <entry file="file://$PROJECT_DIR$/src/enemies/EnemyController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="882">
+          <caret line="54" column="27" lean-forward="true" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlayerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="63" column="19" lean-forward="true" selection-start-line="63" selection-start-column="19" selection-end-line="63" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/enemies/EnemyBullet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
-          <caret line="15" column="32" lean-forward="true" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+          <caret line="12" column="27" lean-forward="true" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlayerBullet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="35" column="5" lean-forward="true" selection-start-line="7" selection-start-column="4" selection-end-line="35" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GameWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="775">
-          <caret line="186" column="0" lean-forward="false" selection-start-line="186" selection-start-column="0" selection-end-line="186" selection-end-column="0" />
+        <state relative-caret-position="21">
+          <caret line="176" column="38" lean-forward="false" selection-start-line="176" selection-start-column="38" selection-end-line="176" selection-end-column="38" />
           <folding>
-            <element signature="class#1702:2421" expanded="false" />
-            <element signature="method#windowOpened#0;class#1702:2421" expanded="false" />
+            <element signature="class#1608:2327" expanded="false" />
+            <element signature="method#windowOpened#0;class#1608:2327" expanded="false" />
           </folding>
         </state>
       </provider>
