@@ -1,7 +1,4 @@
-import enemies.DiagonalMoveBehavior;
-import enemies.EnemyController;
-import enemies.HorizontalMoveBehavior;
-import enemies.MoveBehavior;
+import enemies.*;
 import utils.Utils;
 
 import javax.imageio.ImageIO;
@@ -37,6 +34,7 @@ public class GameWindow extends Frame {
     ArrayList<PlayerBullet> playerPlayerBullets;
     PlayerController playerController;
     ArrayList<EnemyController> enemyControllers;
+    ArrayList<EnemyBullet> enemyBullets;
 
     //2 Draw
     public GameWindow() {
@@ -49,6 +47,7 @@ public class GameWindow extends Frame {
         playerController.setPlayerPlayerBullets(playerPlayerBullets);
 
         enemyControllers = new ArrayList<>();
+        enemyBullets = new ArrayList<>();
 
         setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 
@@ -163,15 +162,13 @@ public class GameWindow extends Frame {
                         isEnemyAllowed = true;
                         count=0;
                     }
-
+                    // CREATE ENEMIES
                     if(isEnemyAllowed){
                         for(int i=0; i<=SCREEN_HEIGHT; i+=100) {
                             EnemyController enemyController = new EnemyController(300, 10, Utils.loadImage("res/enemy_plane_white_1.png"));
                             enemyController.setMoveBehavior(new MoveBehavior());
                             if(i%200==0){
-                                enemyController.setMoveBehavior(new HorizontalMoveBehavior(1,0));
-//                    if(enemyController.getGameRect().getX() >= SCREEN_WIDTH)
-//                        enemyController.setMoveBehavior(new HorizontalMoveBehavior(-1,0));
+                                enemyController.setMoveBehavior(new HorizontalMoveBehavior(2,0));
                             }
 
                             if(i%300==0){
@@ -182,14 +179,29 @@ public class GameWindow extends Frame {
                         }
                         isEnemyAllowed=false;
                     }
+
+                    //CREATE ENEMY BULLETS
+                    for(EnemyController enemyController : enemyControllers){
+                        EnemyBullet enemyBullet = new EnemyBullet(300,10, Utils.loadImage("res/bullet-round.png"));
+                        enemyBullets.add(enemyBullet);
+                    }
+
                     playerController.processInput(isUpPressed, isDownPressed, isLeftPressed, isRightPressed, isSpacePressed);
 
+                    //PLAYER BULLETS MOVE
                     for (PlayerBullet bullet : playerPlayerBullets) {
                         bullet.update();
                     }
 
+                    //PLAYER MOVES
                     playerController.update();
 
+                    //ENEMY BULLETS MOVE
+                    for(EnemyBullet enemyBullet : enemyBullets){
+                        enemyBullet.update();
+                    }
+
+                    //ENEMIES MOVE
                     for(EnemyController enemyController : enemyControllers) {
                         enemyController.update();
                     }

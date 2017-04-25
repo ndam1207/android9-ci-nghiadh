@@ -1,9 +1,7 @@
 import javax.imageio.ImageIO;
 import java.awt.*;
 
-/**
- * Created by huynq on 4/12/17.
- */
+
 public class PlayerBullet {
     private int x;
     private int y;

@@ -1,6 +1,7 @@
 package enemies;
 
 import models.GameRect;
+import utils.Utils;
 import views.ImageRenderer;
 
 import java.awt.*;
@@ -15,12 +16,10 @@ public class EnemyController {
     private int dx;
     private int dy;
 
-    private ArrayList<EnemyBullet> enemyBullets;
-    int cooldownTime;
-
     public EnemyController(int x,int y, Image image){
         imageRenderer = new ImageRenderer(image);
         gameRect = new GameRect(x, y, 60, 60);
+
     }
 
     public void setMoveBehavior(MoveBehavior moveBehavior) {
@@ -48,16 +47,8 @@ public class EnemyController {
     }
 
     public void update(){
-        if(moveBehavior!=null){
+        if(moveBehavior!=null) {
             moveBehavior.move(gameRect);
         }
-        if(shootDisabled) {
-            cooldownTime++;
-            if (cooldownTime > 5) {
-                shootDisabled = false;
-                cooldownTime = 0;
-            }
-        }
     }
-
 }
