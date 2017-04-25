@@ -34,7 +34,7 @@ public class EnemyBullet {
     }
 
     public void draw(Graphics graphics) {
-        graphics.drawImage(this.image, this.x, this.y,null);
+        imageRenderer.render(graphics,gameRect);
     }
 
     public void update() {
