@@ -18,9 +18,7 @@ public class EnemyBullet {
 
     public EnemyBullet(int x, int y, Image image) {
         imageRenderer = new ImageRenderer(image);
-        this.x = x +(60/2 - image.getWidth(null) / 2);
-        this.y = y + 70;
-        gameRect = new GameRect(this.x, this.y, 10, 10);
+        gameRect = new GameRect(x +(60/2 - image.getWidth(null) / 2), y + 70, 10, 10);
     }
 
     public int getX() {

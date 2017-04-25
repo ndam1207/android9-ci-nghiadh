@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d368f20a-7d1f-43a7-a2b7-70ed593e053d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/android9-nghiadh-git/GameWindow$1.class" afterPath="$PROJECT_DIR$/out/production/android9-nghiadh-git/GameWindow$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/android9-nghiadh-git/GameWindow$2.class" afterPath="$PROJECT_DIR$/out/production/android9-nghiadh-git/GameWindow$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/android9-nghiadh-git/GameWindow$3.class" afterPath="$PROJECT_DIR$/out/production/android9-nghiadh-git/GameWindow$3.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/android9-nghiadh-git/GameWindow.class" afterPath="$PROJECT_DIR$/out/production/android9-nghiadh-git/GameWindow.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/android9-nghiadh-git/PlayerBullet.class" afterPath="$PROJECT_DIR$/out/production/android9-nghiadh-git/PlayerBullet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/android9-nghiadh-git/enemies/EnemyBullet.class" afterPath="$PROJECT_DIR$/out/production/android9-nghiadh-git/enemies/EnemyBullet.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/android9-nghiadh-git/enemies/EnemyController.class" afterPath="$PROJECT_DIR$/out/production/android9-nghiadh-git/enemies/EnemyController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameWindow.java" afterPath="$PROJECT_DIR$/src/GameWindow.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PlayerBullet.java" afterPath="$PROJECT_DIR$/src/PlayerBullet.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/enemies/EnemyBullet.java" afterPath="$PROJECT_DIR$/src/enemies/EnemyBullet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/enemies/EnemyController.java" afterPath="$PROJECT_DIR$/src/enemies/EnemyController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,7 +21,7 @@
       <file leaf-file-name="EnemyController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/enemies/EnemyController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
+            <state relative-caret-position="294">
               <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -41,11 +30,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameWindow.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GameWindow.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GameWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="170" column="92" lean-forward="false" selection-start-line="170" selection-start-column="92" selection-end-line="170" selection-end-column="92" />
+            <state relative-caret-position="833">
+              <caret line="92" column="0" lean-forward="true" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="class#1572:2291" expanded="false" />
@@ -55,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EnemyBullet.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="EnemyBullet.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/enemies/EnemyBullet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+            <state relative-caret-position="273">
+              <caret line="19" column="49" lean-forward="true" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -143,8 +132,8 @@
         <option value="$PROJECT_DIR$/src/PlayerBullet.java" />
         <option value="$PROJECT_DIR$/src/PlayerController.java" />
         <option value="$PROJECT_DIR$/src/enemies/EnemyController.java" />
-        <option value="$PROJECT_DIR$/src/enemies/EnemyBullet.java" />
         <option value="$PROJECT_DIR$/src/GameWindow.java" />
+        <option value="$PROJECT_DIR$/src/enemies/EnemyBullet.java" />
       </list>
     </option>
   </component>
@@ -737,15 +726,15 @@
       <workItem from="1492505982305" duration="4543000" />
       <workItem from="1492567703581" duration="29000" />
       <workItem from="1492928633373" duration="92000" />
-      <workItem from="1493128510947" duration="6870000" />
+      <workItem from="1493128510947" duration="7660000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47644000" />
+    <option name="totallyTimeSpent" value="48434000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1114,19 +1103,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/enemies/EnemyBullet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/enemies/EnemyController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
+        <state relative-caret-position="294">
           <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1136,12 +1115,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GameWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="170" column="92" lean-forward="false" selection-start-line="170" selection-start-column="92" selection-end-line="170" selection-end-column="92" />
+        <state relative-caret-position="833">
+          <caret line="92" column="0" lean-forward="true" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="class#1572:2291" expanded="false" />
             <element signature="method#windowOpened#0;class#1572:2291" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/enemies/EnemyBullet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="19" column="49" lean-forward="true" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
