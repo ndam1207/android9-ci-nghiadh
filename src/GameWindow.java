@@ -230,6 +230,10 @@ public class GameWindow extends Frame {
         for (EnemyController enemyController : enemyControllers) {
             enemyController.draw(backbufferGraphics);
         }
+
+        for(EnemyBullet enemyBullet : enemyBullets){
+            enemyBullet.draw(backbufferGraphics);
+        }
         g.drawImage(backBufferImage, 0, 0, null);
 
     }
