@@ -47,6 +47,7 @@ public class GameWindow extends Frame {
         playerController.setPlayerPlayerBullets(playerPlayerBullets);
 
         enemyControllers = new ArrayList<>();
+
         enemyBullets = new ArrayList<>();
 
         setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
@@ -176,14 +177,20 @@ public class GameWindow extends Frame {
                             }
 
                             enemyControllers.add(enemyController);
+                            enemyController.setEnemyBullets(enemyBullets);
+
                         }
                         isEnemyAllowed=false;
                     }
 
+
                     //CREATE ENEMY BULLETS
                     for(EnemyController enemyController : enemyControllers){
-                        EnemyBullet enemyBullet = new EnemyBullet(300,10, Utils.loadImage("res/bullet-round.png"));
-                        enemyBullets.add(enemyBullet);
+                        if(enemyController != null) {
+                            EnemyBullet enemyBullet = new EnemyBullet(enemyController.getGameRect().getX(), enemyController.getGameRect().getY(), Utils.loadImage("res/bullet-round.png"));
+                            enemyController.setEnemyBullets(enemyBullets);
+                            enemyBullets.add(enemyBullet);
+                        }
                     }
 
                     playerController.processInput(isUpPressed, isDownPressed, isLeftPressed, isRightPressed, isSpacePressed);
@@ -198,7 +205,9 @@ public class GameWindow extends Frame {
 
                     //ENEMY BULLETS MOVE
                     for(EnemyBullet enemyBullet : enemyBullets){
-                        enemyBullet.update();
+                        if(enemyBullet != null) {
+                            enemyBullet.update();
+                        }
                     }
 
                     //ENEMIES MOVE
@@ -206,6 +215,19 @@ public class GameWindow extends Frame {
                         enemyController.update();
                     }
 
+                    //REMOVE EXTRA ENEMIES
+                    for(EnemyController enemyController : enemyControllers){
+                        if(enemyController.getGameRect().getY() >= SCREEN_HEIGHT){
+                            enemyControllers.remove(enemyController);
+                        }
+                    }
+
+                    //REMOVE EXTRA ENEMY BULLETS
+                    for (EnemyBullet enemyBullet : enemyBullets){
+                        if(enemyBullet.getGameRect().getY() >= SCREEN_HEIGHT){
+                            enemyBullets.remove(enemyBullet);
+                        }
+                    }
                     // Draw
                     repaint();
                 }

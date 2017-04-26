@@ -6,9 +6,6 @@ import views.ImageRenderer;
 import java.awt.*;
 
 public class EnemyBullet {
-    private int x;
-    private int y;
-    private Image image;
     private GameRect gameRect;
     private ImageRenderer imageRenderer;
 
@@ -21,16 +18,8 @@ public class EnemyBullet {
         gameRect = new GameRect(x +(60/2 - image.getWidth(null) / 2), y + 70, 10, 10);
     }
 
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public Image getImage() {
-        return image;
+    public GameRect getGameRect() {
+        return gameRect;
     }
 
     public void draw(Graphics graphics) {
@@ -40,12 +29,11 @@ public class EnemyBullet {
     public void update() {
         if(shootDisabled) {
             cooldownTime++;
-            if (cooldownTime > 5) {
+            if (cooldownTime > 50) {
                 shootDisabled = false;
                 cooldownTime = 0;
             }
         }
-
         if(!shootDisabled)
             gameRect.move(0,15);
     }

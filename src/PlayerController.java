@@ -5,9 +5,7 @@ import views.ImageRenderer;
 import java.awt.*;
 import java.util.ArrayList;
 
-/**
- * Created by huynq on 4/12/17.
- */
+
 public class PlayerController {
 
     private GameRect gameRect;

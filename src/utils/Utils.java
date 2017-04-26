@@ -5,9 +5,6 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
-/**
- * Created by huynq on 4/15/17.
- */
 public class Utils {
     public static Image loadImage(String path) {
         try {

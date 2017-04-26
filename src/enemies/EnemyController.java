@@ -11,12 +11,15 @@ public class EnemyController {
     private GameRect gameRect;
     private ImageRenderer imageRenderer;
     private MoveBehavior moveBehavior;
-    private boolean shootDisabled;
 
     private int dx;
     private int dy;
 
-    public EnemyController(int x,int y, Image image){
+    private ArrayList<EnemyBullet> enemyBullets;
+
+
+
+    public EnemyController(int x, int y, Image image){
         imageRenderer = new ImageRenderer(image);
         gameRect = new GameRect(x, y, 60, 60);
 
@@ -40,6 +43,10 @@ public class EnemyController {
 
     public int getDy() {
         return dy;
+    }
+
+    public void setEnemyBullets(ArrayList<EnemyBullet> enemyBullets) {
+        this.enemyBullets = enemyBullets;
     }
 
     public void draw(Graphics graphics){
