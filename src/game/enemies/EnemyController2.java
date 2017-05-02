@@ -10,7 +10,7 @@ import game.views.ImageRenderer;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class EnemyController extends Controller implements Collider{
+public class EnemyController2 extends Controller implements Collider{
     private MoveBehavior moveBehavior;
 
     private int dx;
@@ -20,7 +20,7 @@ public class EnemyController extends Controller implements Collider{
 
     private ArrayList<EnemyBullet> enemyBullets;
 
-    public EnemyController(int x, int y, Image image){
+    public EnemyController2(int x, int y, Image image){
         super(new GameRect(x, y, 60, 60),new ImageRenderer(image));
         CollisionManager.instance.add(this);
         shootDisabled = true;
@@ -74,5 +74,4 @@ public class EnemyController extends Controller implements Collider{
     public void setShootDisabled(boolean shootDisabled) {
         this.shootDisabled = shootDisabled;
     }
-
 }

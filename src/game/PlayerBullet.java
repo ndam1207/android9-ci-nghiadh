@@ -3,6 +3,7 @@ package game;
 import game.controllers.CollisionManager;
 import game.controllers.Controller;
 import game.enemies.EnemyController;
+import game.enemies.EnemyController2;
 import game.models.GameRect;
 import game.views.ImageRenderer;
 
@@ -39,6 +40,9 @@ public class PlayerBullet extends Controller implements Collider{
     public void onCollide(Collider other) {
         if(other instanceof EnemyController){
             ((EnemyController) other).getHit(damage);
+        }
+        if(other instanceof EnemyController2){
+            ((EnemyController2) other).getHit(damage);
         }
     }
 

@@ -44,6 +44,10 @@ public class CollisionManager {
         }
     }
 
+    public void setColliders(ArrayList<Collider> colliders) {
+        this.colliders = colliders;
+    }
+
     public void remove(Collider collider){
         if(collider.getGameRect().isDead()){
             colliders.remove(collider);

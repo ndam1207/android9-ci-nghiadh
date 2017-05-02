@@ -2,12 +2,11 @@ package game.enemies;
 
 import game.models.GameRect;
 
-
-public class HorizontalMoveBehavior extends MoveBehavior {
+public class VerticalMoveBehavior extends MoveBehavior {
     private int dx;
     private int dy;
 
-    public HorizontalMoveBehavior(int dx, int dy) {
+    public VerticalMoveBehavior(int dx, int dy) {
         this.dx = dx;
         this.dy = dy;
     }
