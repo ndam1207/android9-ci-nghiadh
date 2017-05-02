@@ -58,7 +58,6 @@ public class EnemyController extends Controller implements Collider{
         if(shootDisabled) {
             while(cooldownTime < 5) {
                 cooldownTime++;
-                System.out.println(cooldownTime);
             }
         }
     }
