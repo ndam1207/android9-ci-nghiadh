@@ -45,6 +45,9 @@ public class GameWindow extends Frame {
 //    ArrayList<Collider> colliders;
     ArrayList<EnemyController2> enemyController2s;
 
+    private boolean enableEnemyShoot = true;
+    private int coolDownTime;
+
 
     //2 Draw
     public GameWindow() {
@@ -52,7 +55,7 @@ public class GameWindow extends Frame {
 
         playerPlayerBullets = new ArrayList<>();
 
-        playerController = new PlayerController(200 - 17, 500 - 25, Utils.loadImage("res/plane3.png"));
+        playerController = new PlayerController(SCREEN_WIDTH/2, SCREEN_HEIGHT-100, Utils.loadImage("res/plane3.png"));
 
         playerController.setPlayerPlayerBullets(playerPlayerBullets);
 
@@ -180,6 +183,7 @@ public class GameWindow extends Frame {
                         count=0;
                     }
                     // CREATE ENEMIES
+                    setEnemyShoot();
                     if(isEnemyAllowed){
                         for(int i=0; i<=SCREEN_HEIGHT; i+=100) {
                             EnemyController enemyController = new EnemyController(randomX, 10, Utils.loadImage("res/enemy_plane_white_1.png"));
@@ -320,10 +324,26 @@ public class GameWindow extends Frame {
         thread.start();
     }
 
-
+    public void setEnemyShoot(){
+        if(enableEnemyShoot){
+            enableEnemyShoot = false;
+            for(EnemyController enemyController : enemyControllers){
+                EnemyBullet enemyBullet;
+                enemyBullet = new EnemyBullet(enemyController.getGameRect().getX(), enemyController.getGameRect().getY(), Utils.loadImage("res/enemy_bullet.png"));
+                enemyBullets.add(enemyBullet);
+                coolDownTime = 30;
+            }
+        }
+    }
 
     @Override
     public void update(Graphics g) {
+        if(!enableEnemyShoot){
+            coolDownTime--;
+            if(coolDownTime <= 0){
+                enableEnemyShoot = true;
+            }
+        }
         backbufferGraphics.drawImage(backgroundImage, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT, null);
 
         playerController.draw(backbufferGraphics);
