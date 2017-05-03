@@ -1,7 +1,7 @@
 package game.enemies;
 
-import game.Collider;
-import game.PlayerController;
+import game.controllers.Collider;
+import game.controllers.PlayerController;
 import game.controllers.CollisionManager;
 import game.controllers.Controller;
 import game.models.GameRect;
@@ -12,10 +12,10 @@ import java.awt.*;
 public class EnemyBullet extends Controller implements Collider {
     private ImageRenderer imageRenderer;
     int damage = 1;
-    private boolean hasTouched;
+    private boolean isDead;
 
     public EnemyBullet(int x, int y, Image image) {
-        super(new GameRect(x +(60/2 - image.getWidth(null) / 2), y + 70, 10, 10),
+        super(new GameRect(x +(60/2 - image.getWidth(null) / 2), y + 70, 45, 45),
                 new ImageRenderer(image));
         CollisionManager.instance.add(this);
 
@@ -33,12 +33,12 @@ public class EnemyBullet extends Controller implements Collider {
         }
     }
 
-    public boolean hasTouched() {
-        return hasTouched;
+    public boolean isDead() {
+        return isDead;
     }
 
-    public void setTouched(boolean hasTouched) {
-        this.hasTouched = hasTouched;
+    public void setDead(boolean hasTouched) {
+        this.isDead = isDead;
     }
 
     public void update() {

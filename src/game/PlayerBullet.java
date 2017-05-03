@@ -1,5 +1,6 @@
 package game;
 
+import game.controllers.Collider;
 import game.controllers.CollisionManager;
 import game.controllers.Controller;
 import game.enemies.EnemyController;
@@ -7,14 +8,12 @@ import game.enemies.EnemyController2;
 import game.models.GameRect;
 import game.views.ImageRenderer;
 
-import javax.imageio.ImageIO;
-import javax.sound.sampled.Control;
 import java.awt.*;
 
 
-public class PlayerBullet extends Controller implements Collider{
+public class PlayerBullet extends Controller implements Collider {
     int damage = 1;
-    private boolean hasTouched;
+    private boolean isDead;
     public PlayerBullet(int x, int y, Image image) {
         super(new GameRect(x - image.getWidth(null) / 2,y - image.getHeight(null),20,50),
                 new ImageRenderer(image));
@@ -46,11 +45,11 @@ public class PlayerBullet extends Controller implements Collider{
         }
     }
 
-    public boolean hasTouched() {
-        return hasTouched;
+    public boolean isDead() {
+        return isDead;
     }
 
-    public void setTouched(boolean hasTouched) {
-        this.hasTouched = hasTouched;
+    public void setDead(boolean hasTouched) {
+        this.isDead = isDead;
     }
 }

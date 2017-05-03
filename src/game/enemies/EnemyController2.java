@@ -1,6 +1,6 @@
 package game.enemies;
 
-import game.Collider;
+import game.controllers.Collider;
 import game.PlayerBullet;
 import game.controllers.CollisionManager;
 import game.controllers.Controller;
@@ -52,7 +52,7 @@ public class EnemyController2 extends Controller implements Collider{
     @Override
     public void onCollide(Collider other) {
         if(other instanceof PlayerBullet){
-            ((PlayerBullet) other).setTouched(true);
+            ((PlayerBullet) other).setDead(true);
         }
     }
     public void coolDown(){

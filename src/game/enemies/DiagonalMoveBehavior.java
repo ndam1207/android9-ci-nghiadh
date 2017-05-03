@@ -2,9 +2,6 @@ package game.enemies;
 
 import game.models.GameRect;
 
-/**
- * Created by valky on 4/18/2017.
- */
 public class DiagonalMoveBehavior extends MoveBehavior {
     private int dx1;
     private int dy1;

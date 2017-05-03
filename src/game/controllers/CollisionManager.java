@@ -1,8 +1,5 @@
 package game.controllers;
 
-import game.Collider;
-import game.PlayerBullet;
-import game.enemies.EnemyBullet;
 import game.models.GameRect;
 
 import java.util.ArrayList;

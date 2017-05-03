@@ -1,5 +1,7 @@
-package game;
+package game.controllers;
 
+import game.PlayerBullet;
+import game.controllers.Collider;
 import game.controllers.CollisionManager;
 import game.controllers.Controller;
 import game.enemies.EnemyBullet;
@@ -39,7 +41,7 @@ public class PlayerController extends Controller implements Collider {
     @Override
     public void onCollide(Collider other) {
         if(other instanceof EnemyBullet){
-            ((EnemyBullet) other).setTouched(true);
+            ((EnemyBullet) other).setDead(true);
         }
     }
 
@@ -84,6 +86,7 @@ public class PlayerController extends Controller implements Collider {
 
     public void getHit(int damage){
         hp -= damage;
+        System.out.println(hp);
         if(hp <=0){
             gameRect.setDead(true);
         }

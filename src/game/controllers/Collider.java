@@ -1,6 +1,5 @@
-package game;
+package game.controllers;
 
-import game.controllers.CollisionManager;
 import game.models.GameRect;
 
 public interface Collider {
