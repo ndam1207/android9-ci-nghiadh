@@ -1,9 +1,11 @@
-package game.enemies;
+package game.controllers;
 
 import game.controllers.Collider;
 import game.PlayerBullet;
 import game.controllers.CollisionManager;
 import game.controllers.Controller;
+import game.enemies.EnemyBullet;
+import game.enemies.MoveBehavior;
 import game.models.GameRect;
 import game.views.ImageRenderer;
 
@@ -16,9 +18,6 @@ public class EnemyController2 extends Controller implements Collider{
     private int dx;
     private int dy;
     private boolean shootDisabled;
-    private int cooldownTime = 0;
-
-    private ArrayList<EnemyBullet> enemyBullets;
 
     public EnemyController2(int x, int y, Image image){
         super(new GameRect(x, y, 60, 60),new ImageRenderer(image));
@@ -28,10 +27,6 @@ public class EnemyController2 extends Controller implements Collider{
 
     public void setMoveBehavior(MoveBehavior moveBehavior) {
         this.moveBehavior = moveBehavior;
-    }
-
-    public void setEnemyBullets(ArrayList<EnemyBullet> enemyBullets) {
-        this.enemyBullets = enemyBullets;
     }
 
     public void update(){
@@ -55,23 +50,6 @@ public class EnemyController2 extends Controller implements Collider{
             ((PlayerBullet) other).setDead(true);
         }
     }
-    public void coolDown(){
-        if(shootDisabled) {
-            while(cooldownTime < 5) {
-                cooldownTime++;
-            }
-        }
-    }
 
-    public int getCooldownTime() {
-        return cooldownTime;
-    }
 
-    public void setCooldownTime(int cooldownTime) {
-        this.cooldownTime = cooldownTime;
-    }
-
-    public void setShootDisabled(boolean shootDisabled) {
-        this.shootDisabled = shootDisabled;
-    }
 }

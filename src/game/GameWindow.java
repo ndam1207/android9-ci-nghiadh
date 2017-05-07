@@ -27,8 +27,8 @@ public class GameWindow extends Frame {
     BufferedImage backBufferImage;
     Graphics backbufferGraphics;
 
-    public static final int SCREEN_WIDTH = 600;
-    public static final int SCREEN_HEIGHT = 800;
+    public static final int SCREEN_WIDTH = 500;
+    public static final int SCREEN_HEIGHT = 700;
 
     GameScene currentScene;
 

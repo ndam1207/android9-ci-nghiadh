@@ -2,11 +2,11 @@ package game.scenes;
 
 import game.GameWindow;
 import game.utils.Utils;
+
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent;
 
-public class MenuScene implements GameScene {
+public class GameOverScene implements GameScene{
     Image menuBackGround = Utils.loadImage("res/F15.jpg");
     Image startButton = Utils.loadImage("res/start.png");
 
@@ -33,3 +33,4 @@ public class MenuScene implements GameScene {
 
     }
 }
+

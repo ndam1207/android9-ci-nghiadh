@@ -1,5 +1,7 @@
 package game.controllers;
 
+import game.GameWindow;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -19,7 +21,7 @@ public class ControllerManager {
 
     public void draw(Graphics graphics){
         for(Controller controller : controllers){
-            controller.update();
+            controller.draw(graphics);
         }
     }
 
@@ -27,7 +29,7 @@ public class ControllerManager {
         Iterator<Controller> iterator = controllers.iterator();
         while(iterator.hasNext()){
             Controller controller = iterator.next();
-            if(controller.getGameRect().isDead()){
+            if((controller.getGameRect().isDead()) || (controller.getGameRect().getY() >= GameWindow.SCREEN_HEIGHT)){
                 controllers.remove(controller);
             }
         }

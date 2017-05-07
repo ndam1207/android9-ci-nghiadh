@@ -3,8 +3,8 @@ package game;
 import game.controllers.Collider;
 import game.controllers.CollisionManager;
 import game.controllers.Controller;
-import game.enemies.EnemyController;
-import game.enemies.EnemyController2;
+import game.controllers.EnemyController;
+import game.controllers.EnemyController2;
 import game.models.GameRect;
 import game.views.ImageRenderer;
 

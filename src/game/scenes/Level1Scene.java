@@ -1,23 +1,15 @@
 package game.scenes;
 
+import game.GameWindow;
 import game.PlayerBullet;
-import game.controllers.Collider;
-import game.controllers.ControllerManager;
-import game.controllers.PlayerController;
+import game.controllers.*;
 import game.enemies.*;
 import game.utils.Utils;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
-
-import static com.sun.java.accessibility.util.AWTEventMonitor.addKeyListener;
-import static com.sun.java.accessibility.util.AWTEventMonitor.addWindowListener;
 
 public class Level1Scene implements GameScene{
     Image backgroundImage = Utils.loadImage("res/background.png");
@@ -31,26 +23,16 @@ public class Level1Scene implements GameScene{
 
     private int count = 0;
     PlayerController playerController;
-    Collider collider;
     public static final int SCREEN_WIDTH = 600;
     public static final int SCREEN_HEIGHT = 800;
 
-    ArrayList<PlayerBullet> playerPlayerBullets;
-    ArrayList<EnemyController> enemyControllers;
-    ArrayList<EnemyBullet> enemyBullets;
-    ControllerManager enemyManager;
-    ArrayList<EnemyController2> enemyController2s;
 
     private boolean enableEnemyShoot = true;
     private int coolDownTime;
 
     public Level1Scene() {
         playerController = new PlayerController(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 100, Utils.loadImage("res/plane3.png"));
-        playerPlayerBullets = new ArrayList<>();
-        playerController.setPlayerPlayerBullets(playerPlayerBullets);
-        enemyControllers = new ArrayList<>();
-        enemyController2s = new ArrayList<>();
-        enemyBullets = new ArrayList<>();
+
 
     }
 
@@ -119,22 +101,20 @@ public class Level1Scene implements GameScene{
                     enemyController.setMoveBehavior(new DiagonalMoveBehavior(1,2,-2,-1));
                 }
 
-                enemyControllers.add(enemyController);
-                enemyController.setEnemyBullets(enemyBullets);
+                ControllerManager.instance.add(enemyController);
 
             }
 
             for(int i=0; i<=200; i+=100) {
                 EnemyController2 enemyController2 = new EnemyController2(randomX+=150, 20, Utils.loadImage("res/enemy-green-3.png"));
                 enemyController2.setMoveBehavior(new VerticalMoveBehavior(0,2));
-                enemyController2s.add(enemyController2);
-                enemyController2.setEnemyBullets(enemyBullets);
+                ControllerManager.instance.add(enemyController2);
             }
             isEnemyAllowed=false;
         }
 
         //CREATE ENEMY BULLETS
-        setEnemyShoot();
+//        setEnemyShoot();
         if(!enableEnemyShoot){
             coolDownTime--;
             if(coolDownTime <= 0){
@@ -145,98 +125,32 @@ public class Level1Scene implements GameScene{
         //PLAYER MOVES
         playerController.processInput(isUpPressed, isDownPressed, isLeftPressed, isRightPressed, isSpacePressed);
 
-        //PLAYER BULLETS MOVE
-        for (PlayerBullet bullet : playerPlayerBullets) {
-            bullet.update();
-        }
-
         //PLAYER MOVES
         playerController.update();
 
-        //ENEMY BULLETS MOVE
-        for(EnemyBullet enemyBullet : enemyBullets){
-            if(enemyBullet != null) {
-                enemyBullet.update();
-            }
-        }
+        ControllerManager.instance.update();
 
-        //ENEMIES MOVE
-        for(EnemyController enemyController : enemyControllers) {
-            enemyController.update();
-        }
-        for(EnemyController2 enemyController2 : enemyController2s) {
-            enemyController2.update();
-        }
-
-        //REMOVE DEAD OBJECTS
-        Iterator<EnemyController> enemyIterator = enemyControllers.iterator();
-        while(enemyIterator.hasNext()){
-            EnemyController enemyController = enemyIterator.next();
-            if(enemyController.getGameRect().isDead()){
-                enemyIterator.remove();
-            }
-        }
-
-        Iterator<EnemyController2> enemyController2Iterator = enemyController2s.iterator();
-        while(enemyController2Iterator.hasNext()){
-            EnemyController2 enemyController2 = enemyController2Iterator.next();
-            if(enemyController2.getGameRect().isDead()){
-                enemyController2Iterator.remove();
-            }
-        }
-
-        Iterator<PlayerBullet> playerBulletIterator = playerPlayerBullets.iterator();
-        while(playerBulletIterator.hasNext()){
-            PlayerBullet playerBullet = playerBulletIterator.next();
-            if(playerBullet.isDead()){
-                playerBulletIterator.remove();
-            }
-        }
-
-        Iterator<EnemyBullet> enemyBulletIterator = enemyBullets.iterator();
-        while(enemyBulletIterator.hasNext()){
-            EnemyBullet enemyBullet = enemyBulletIterator.next();
-            if(enemyBullet.isDead()){
-                enemyBulletIterator.remove();
-            }
-        }
-
-
-        //REMOVE EXTRA ENEMIES
-        while(enemyIterator.hasNext()){
-            EnemyController enemyController = enemyIterator.next();
-            if(enemyController.getGameRect().getY() >= SCREEN_HEIGHT){
-                enemyIterator.remove();
-            }
-        }
-
-        //REMOVE EXTRA ENEMY BULLETS
-        while(enemyBulletIterator.hasNext()){
-            EnemyBullet enemyBullet = enemyBulletIterator.next();
-            if(enemyBullet.getGameRect().getY() >= SCREEN_HEIGHT){
-                enemyBulletIterator.remove();
-            }
-        }
 
         //GAME OVER
         if(playerController.getGameRect().isDead()){
             System.out.println("GAME OVER!!");
+//            GameWindow.instance.setCurrentScene(new GameOverScene());
         }
     }
 
 
-    public void setEnemyShoot(){
-        if(enableEnemyShoot){
-            enableEnemyShoot = false;
-            for(EnemyController enemyController : enemyControllers){
-                EnemyBullet enemyBullet = new EnemyBullet(enemyController.getGameRect().getX(),
-                        enemyController.getGameRect().getY(),
-                        Utils.loadImage("res/enemy_bullet.png"));
-                enemyBullets.add(enemyBullet);
-                coolDownTime = 30;
-            }
-        }
-    }
+//    public void setEnemyShoot(){
+//        if(enableEnemyShoot){
+//            enableEnemyShoot = false;
+//            for(EnemyController enemyController : enemyControllers){
+//                EnemyBullet enemyBullet = new EnemyBullet(enemyController.getGameRect().getX(),
+//                        enemyController.getGameRect().getY(),
+//                        Utils.loadImage("res/enemy_bullet.png"));
+//                ControllerManager.instance.add(enemyBullet);
+//                coolDownTime = 30;
+//            }
+//        }
+//    }
 
     @Override
     public void draw(Graphics graphics){
@@ -244,20 +158,6 @@ public class Level1Scene implements GameScene{
 
         playerController.draw(graphics);
 
-        for (PlayerBullet playerBullet : playerPlayerBullets) {
-            playerBullet.draw(graphics);
-        }
-
-        for (EnemyController enemyController : enemyControllers) {
-            enemyController.draw(graphics);
-        }
-
-        for (EnemyController2 enemyController2 : enemyController2s){
-            enemyController2.draw(graphics);
-        }
-
-        for(EnemyBullet enemyBullet : enemyBullets){
-            enemyBullet.draw(graphics);
-        }
+        ControllerManager.instance.draw(graphics);
     }}
 

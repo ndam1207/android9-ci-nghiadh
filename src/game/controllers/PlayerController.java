@@ -21,7 +21,7 @@ public class PlayerController extends Controller implements Collider {
 
     int hp = 5;
 
-    private ArrayList<PlayerBullet> playerPlayerBullets;
+//    private ArrayList<PlayerBullet> playerPlayerBullets;
     int cooldownTime;
 
     public PlayerController(int x, int y, Image image) {
@@ -45,9 +45,6 @@ public class PlayerController extends Controller implements Collider {
         }
     }
 
-    public void setPlayerPlayerBullets(ArrayList<PlayerBullet> playerPlayerBullets) {
-        this.playerPlayerBullets = playerPlayerBullets;
-    }
 
     public void draw(Graphics graphics) {
         imageRenderer.render(graphics,gameRect);
@@ -79,7 +76,7 @@ public class PlayerController extends Controller implements Collider {
         if(isSpacePressed && !shootDisabled) {
             shootDisabled = true;
             PlayerBullet playerBullet = new PlayerBullet(gameRect.getX() + 35, gameRect.getY(), Utils.loadImage("res/bullet.png"));
-            playerPlayerBullets.add(playerBullet);
+            ControllerManager.instance.add(playerBullet);
         }
     }
 
