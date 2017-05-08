@@ -30,7 +30,7 @@ public class ControllerManager {
         while(iterator.hasNext()){
             Controller controller = iterator.next();
             if((controller.getGameRect().isDead()) || (controller.getGameRect().getY() >= GameWindow.SCREEN_HEIGHT)){
-                controllers.remove(controller);
+                iterator.remove();
             }
         }
 

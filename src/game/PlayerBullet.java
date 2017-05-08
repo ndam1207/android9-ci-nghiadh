@@ -49,7 +49,7 @@ public class PlayerBullet extends Controller implements Collider {
         return isDead;
     }
 
-    public void setDead(boolean hasTouched) {
+    public void setDead(boolean isDead) {
         this.isDead = isDead;
     }
 }
