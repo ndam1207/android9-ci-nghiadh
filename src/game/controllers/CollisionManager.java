@@ -1,8 +1,10 @@
 package game.controllers;
 
+import game.GameWindow;
 import game.models.GameRect;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class CollisionManager {
     private ArrayList<Collider> colliders;
@@ -37,6 +39,13 @@ public class CollisionManager {
                     ci.onCollide(cj);
                     cj.onCollide(ci);
                 }
+            }
+        }
+        Iterator<Collider> iterator = colliders.iterator();
+        while(iterator.hasNext()){
+            Collider collider = iterator.next();
+            if((collider.getGameRect().isDead()) || (collider.getGameRect().getY() >= GameWindow.SCREEN_HEIGHT)){
+                iterator.remove();
             }
         }
     }

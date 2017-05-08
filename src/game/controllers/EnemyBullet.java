@@ -1,4 +1,4 @@
-package game.enemies;
+package game.controllers;
 
 import game.controllers.Collider;
 import game.controllers.PlayerController;

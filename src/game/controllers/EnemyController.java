@@ -1,17 +1,11 @@
 package game.controllers;
 
-import game.controllers.Collider;
 import game.PlayerBullet;
-import game.controllers.CollisionManager;
-import game.controllers.Controller;
-import game.enemies.EnemyBullet;
 import game.enemies.MoveBehavior;
 import game.models.GameRect;
-import game.utils.Utils;
 import game.views.ImageRenderer;
 
 import java.awt.*;
-import java.util.ArrayList;
 
 public class EnemyController extends Controller implements Collider{
     private MoveBehavior moveBehavior;
@@ -35,7 +29,7 @@ public class EnemyController extends Controller implements Collider{
     }
     public void getHit(int damage){
         gameRect.setDead(true);
-        CollisionManager.instance.remove(this);
+//        CollisionManager.instance.remove(this);
     }
 
     @Override

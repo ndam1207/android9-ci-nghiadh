@@ -1,16 +1,11 @@
 package game.controllers;
 
 import game.PlayerBullet;
-import game.controllers.Collider;
-import game.controllers.CollisionManager;
-import game.controllers.Controller;
-import game.enemies.EnemyBullet;
 import game.models.GameRect;
 import game.utils.Utils;
 import game.views.ImageRenderer;
 
 import java.awt.*;
-import java.util.ArrayList;
 
 
 public class PlayerController extends Controller implements Collider {

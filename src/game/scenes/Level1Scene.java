@@ -32,8 +32,6 @@ public class Level1Scene implements GameScene{
 
     public Level1Scene() {
         playerController = new PlayerController(SCREEN_WIDTH / 2, SCREEN_HEIGHT - 100, Utils.loadImage("res/plane3.png"));
-
-
     }
 
     @Override
@@ -128,8 +126,8 @@ public class Level1Scene implements GameScene{
         //PLAYER MOVES
         playerController.update();
 
+        CollisionManager.instance.update();
         ControllerManager.instance.update();
-
 
         //GAME OVER
         if(playerController.getGameRect().isDead()){
