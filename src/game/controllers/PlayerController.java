@@ -36,7 +36,7 @@ public class PlayerController extends Controller implements Collider {
     @Override
     public void onCollide(Collider other) {
         if(other instanceof EnemyBullet){
-            ((EnemyBullet) other).setDead(true);
+            ((EnemyBullet) other).gameRect.setDead(true);
         }
     }
 

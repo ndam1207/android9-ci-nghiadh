@@ -29,7 +29,9 @@ public class EnemyController2 extends Controller implements Collider{
     }
     public void getHit(int damage){
         gameRect.setDead(true);
-//        CollisionManager.instance.remove(this);
+        GameRect explosionGameRect = new GameRect(gameRect.getX(),gameRect.getY(),0,0);
+        ExplosionController explosionController = new ExplosionController(explosionGameRect);
+        ControllerManager.instance.add(explosionController);
     }
 
     @Override
@@ -40,7 +42,7 @@ public class EnemyController2 extends Controller implements Collider{
     @Override
     public void onCollide(Collider other) {
         if(other instanceof PlayerBullet){
-            ((PlayerBullet) other).setDead(true);
+            ((PlayerBullet) other).gameRect.setDead(true);
         }
     }
 
